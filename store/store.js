@@ -57,7 +57,7 @@ store.dispatch(orderCake())
 // subscribe
 // It helps you register a callback that Redux store will call when an action has been dispatched. As soon as the Redux state has been updated, the view will re-render automatically.
 
-// The syntax for dispatch is as follows −
+// The syntax for dispatch is as follows − n
 
 // store.subscribe(()=>{ console.log(store.getState());})
 // Note that subscribe function returns a function for unsubscribing the listener. To unsubscribe the listener, we can use the below code −
