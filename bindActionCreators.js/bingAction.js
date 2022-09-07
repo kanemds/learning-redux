@@ -14,7 +14,7 @@ const orderCake = () => {
   }
 }
 
-const restockCake = (qty) => {
+const restockCake = (qty = 1) => {
   return {
     type: CAKE_RESTOCKED,
     payload: qty
@@ -54,7 +54,7 @@ const unsubscribe = store.subscribe(() => {
 // store.dispatch(orderCake())
 // store.dispatch(restockCake(3))
 
-// 
+
 // bindActionCreators({actionCreators}, store.dispatch)
 const actions = bindActionCreators({ orderCake, restockCake }, store.dispatch)
 actions.orderCake()
