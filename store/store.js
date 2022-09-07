@@ -30,6 +30,7 @@ const reducer = (state = initialState, action) => {
         // change state
         numOfCakes: state.numOfCakes - 1,
       }
+
     default:
       return state
   }
@@ -51,12 +52,7 @@ const unsubscribe = store.subscribe(() =>
 // It allows you to dispatch an action to change a state in your application.
 store.dispatch(orderCake())
 store.dispatch(orderCake())
-
-unsubscribe()
-
-// won't see
 store.dispatch(orderCake())
-unsubscribe()
 
 // subscribe
 // It helps you register a callback that Redux store will call when an action has been dispatched. As soon as the Redux state has been updated, the view will re-render automatically.
@@ -68,3 +64,14 @@ unsubscribe()
 
 // const unsubscribe = store.subscribe(()=>{console.log(store.getState());});
 // unsubscribe();
+
+unsubscribe() // cancel auto view render when update
+
+
+console.log(store.getState()) // 7
+store.dispatch(orderCake())
+console.log(store.getState()) // 6
+store.dispatch(orderCake())
+console.log(store.getState()) // 5
+
+// the code still excute but not printing out
