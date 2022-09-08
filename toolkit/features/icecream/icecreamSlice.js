@@ -25,6 +25,8 @@ const icecreamSlice = createSlice({
   //   }
   // }
 
+
+  // recommanded
   extraReducers: (builder) => {
     // make sure import, 
     builder.addCase(cakeActions.ordered, state => {
