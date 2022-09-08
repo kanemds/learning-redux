@@ -4,17 +4,20 @@ const icecreamActions = require('./features/icecream/icecreamSlice').icecreamAct
 
 console.log('Initial state', store.getState())
 
-const unsubscribe = store.subscribe(() => { })
+const unsubscribe = store.subscribe(() => {
+  console.log('updated state', store.getState())
+})
 
 store.dispatch(cakeActions.ordered())
 store.dispatch(cakeActions.ordered())
 store.dispatch(cakeActions.ordered())
-store.dispatch(cakeActions.restocked(3))
-
-store.dispatch(icecreamActions.ordered())
-store.dispatch(icecreamActions.ordered())
-store.dispatch(icecreamActions.ordered())
-store.dispatch(icecreamActions.ordered())
-store.dispatch(icecreamActions.restocked())
+// due to only added in ordered, running restocked() function won't effect any
+store.dispatch(cakeActions.restocked(9))
+store.dispatch(cakeActions.ordered())
+// store.dispatch(icecreamActions.ordered())
+// store.dispatch(icecreamActions.ordered())
+// store.dispatch(icecreamActions.ordered())
+// store.dispatch(icecreamActions.ordered())
+// store.dispatch(icecreamActions.restocked())
 
 unsubscribe()
